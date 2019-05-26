@@ -4,13 +4,18 @@ class TriangleRectangle < GeometricBase
   attr_writer :height, :base
 
   def initialize(base, height)
+    @base = base
+    @height = height
   end
 
   def area
-    0
+    divide(multiply(@base, @height), 2)
   end
 
   def perimeter
-    0
+    #assuming the base is not the hypotenuse
+    temp = sum(exponentiation(@base, 2), exponentiation(@height, 2))
+    hyp = radiciation(temp, 2)
+    sum(sum(@base, @height), hyp)
   end
 end
